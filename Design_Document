@@ -1,0 +1,32 @@
+Web Crawler
+What is a Web Crawler?
+Crawl the web and fetch all the web documents. 
+
+High Level Functional Requirements
+1. The web crawler should take a starting URL (Uniform Resource Locator) and index all of the words on the HTML page referenced by that URL. 
+2. It should then proceed to the other HTML pages that are linked to by the starting URL and index those pages and so on.
+
+
+
+Basic Functions
+1. Start with a page thate has not yet been indexed. 
+2. Download the selected page
+	2.1 For all text areas in the page, parse out all the words
+	2.2 For each word that is not a stop word, place the word in the index with a reference to the page currently being indexed.
+	2.3. For all the <A> tags with href attributes and all <FRAME> and <IFRAME> tags with src attributes, ass the URLs in the href or src attributes to the set of pages that still need to be indexed.
+	2.4 Save summary information for the page.
+3. Repeat until there are no pages left to index
+4. Generate the HTML pages for the index.
+
+Design Considerations
+1. This web crawler is for HTML pages only. But the implementation should be extensible for other media in the future.
+2. It should consider http protocol for this implementation (i.e all links which start with http://). Here again, the implementation should be flexible to extend to support ftp or other protocols.
+3. 
+
+
+
+Architectural Constraints
+1. Scalability
+The implementation should be scalable to index the entire web
+2. Extensibility
+The implementation should be modular so that new functionality (like supporting new document types) should be easily doable. 
